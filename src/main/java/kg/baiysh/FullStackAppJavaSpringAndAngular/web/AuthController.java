@@ -23,7 +23,7 @@ import javax.validation.Valid;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
-@PreAuthorize("permitAll()")
+@PreAuthorize(value = "permitAll()")
 public class AuthController {
 
     private final JWTTokenProvider jwtTokenProvider;
@@ -41,7 +41,7 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @PostMapping("/signIn")
+    @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult) {
         ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
         if (!ObjectUtils.isEmpty(errors)) return errors;
@@ -55,7 +55,7 @@ public class AuthController {
         return ResponseEntity.ok(new JWTTokenSuccessResponse(true, jwt));
     }
 
-    @PostMapping("/signUp")
+    @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest, BindingResult bindingResult) {
         ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
         if (!ObjectUtils.isEmpty(errors)) return errors;
