@@ -1,4 +1,4 @@
-package kg.baiysh.FullStackAppJavaSpringAndAngular.web;
+package kg.baiysh.FullStackAppJavaSpringAndAngular.controller;
 
 import kg.baiysh.FullStackAppJavaSpringAndAngular.payload.request.LoginRequest;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.payload.request.SignUpRequest;
