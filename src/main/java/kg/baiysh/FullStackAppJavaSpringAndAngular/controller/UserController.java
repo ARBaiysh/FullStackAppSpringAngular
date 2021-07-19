@@ -7,6 +7,7 @@ import kg.baiysh.FullStackAppJavaSpringAndAngular.services.UserService;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.validations.ResponseErrorValidation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.ObjectUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,6 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin
 public class UserController {
 
     private final UserService userService;
@@ -30,6 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
         User user = userService.getCurrentUser(principal);
         UserDTO userDTO = userFacade.userToUserDTO(user);
@@ -55,6 +56,4 @@ public class UserController {
         UserDTO userUpdated = userFacade.userToUserDTO(user);
         return new ResponseEntity<>(userUpdated, HttpStatus.OK);
     }
-
-
 }

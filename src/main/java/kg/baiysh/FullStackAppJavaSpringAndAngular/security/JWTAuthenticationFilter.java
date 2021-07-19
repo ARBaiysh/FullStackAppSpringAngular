@@ -3,8 +3,6 @@ package kg.baiysh.FullStackAppJavaSpringAndAngular.security;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.entity.User;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.services.CustomUserDetailsService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -51,10 +49,10 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     private String getJWTFromRequest(HttpServletRequest request) {
         String bearToken = request.getHeader(SecurityConstants.HEADER_STRING);
-       if (StringUtils.hasText(bearToken) && bearToken.startsWith(SecurityConstants.TOKEN_PREFIX)) {
-           return bearToken.split(" ")[1];
-       }
-       return null;
+        if (StringUtils.hasText(bearToken) && bearToken.startsWith(SecurityConstants.TOKEN_PREFIX)) {
+            return bearToken.split(" ")[1];
+        }
+        return null;
     }
 
 

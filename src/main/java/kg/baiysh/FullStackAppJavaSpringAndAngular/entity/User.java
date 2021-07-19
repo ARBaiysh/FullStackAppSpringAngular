@@ -3,6 +3,7 @@ package kg.baiysh.FullStackAppJavaSpringAndAngular.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.entity.enums.ERole;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,6 +13,7 @@ import java.util.*;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,9 +52,6 @@ public class User implements UserDetails {
     @Transient
     private Collection<? extends GrantedAuthority> authorities;
 
-    public User() {
-
-    }
 
     @PrePersist
     protected void onCreate() {
@@ -72,10 +71,9 @@ public class User implements UserDetails {
      */
 
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
-
 
 
     @Override

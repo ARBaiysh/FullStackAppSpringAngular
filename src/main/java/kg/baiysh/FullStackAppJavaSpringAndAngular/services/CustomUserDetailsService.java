@@ -2,7 +2,6 @@ package kg.baiysh.FullStackAppJavaSpringAndAngular.services;
 
 import kg.baiysh.FullStackAppJavaSpringAndAngular.entity.User;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
