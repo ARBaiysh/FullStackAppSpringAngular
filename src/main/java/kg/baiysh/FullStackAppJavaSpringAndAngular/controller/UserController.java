@@ -29,8 +29,8 @@ public class UserController {
         this.responseErrorValidation = responseErrorValidation;
     }
 
-    @GetMapping("/")
     @PreAuthorize("hasRole('USER')")
+    @GetMapping("/")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
         User user = userService.getCurrentUser(principal);
         UserDTO userDTO = userFacade.userToUserDTO(user);
