@@ -16,5 +16,4 @@ public class UserFacade {
         userDTO.setBio(user.getBio());
         return userDTO;
     }
-
 }

@@ -7,7 +7,6 @@ import kg.baiysh.FullStackAppJavaSpringAndAngular.exceptions.UserExistException;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.payload.request.SignUpRequest;
 import kg.baiysh.FullStackAppJavaSpringAndAngular.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

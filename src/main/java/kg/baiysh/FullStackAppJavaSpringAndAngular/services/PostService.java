@@ -88,6 +88,5 @@ public class PostService {
         String username = principal.getName();
         return userRepository.findUserByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found with username " + username));
-
     }
 }
