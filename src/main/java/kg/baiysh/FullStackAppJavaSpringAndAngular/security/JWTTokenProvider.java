@@ -42,7 +42,7 @@ public class JWTTokenProvider {
                     .setSigningKey(SecurityConstants.SECRET)
                     .parseClaimsJws(token);
             return true;
-        }catch (SignatureException |
+        } catch (SignatureException |
                 MalformedJwtException |
                 ExpiredJwtException |
                 UnsupportedJwtException |
@@ -52,12 +52,11 @@ public class JWTTokenProvider {
         }
     }
 
-    public Long getUserIdFromToken(String token) {
+    public String getUserIdFromToken(String token) {
         Claims claims = Jwts.parser()
                 .setSigningKey(SecurityConstants.SECRET)
                 .parseClaimsJws(token)
                 .getBody();
-        String id = (String) claims.get("id");
-        return Long.parseLong(id);
+        return (String) claims.get("username");
     }
 }
